@@ -3,6 +3,20 @@
 
 ## 로컬 설치
 ### macOS + brew
+> postgres 설치(11버전): `brew install postgresql@11`  
+> 서버 실행: `pg_ctl -D /usr/local/var/postgres start`  
+> 서비스 등록: `brew services start postgresql`  
+> 실행 확인: `postgres -V`  
+
+## 사용자 등록 및 권한 등록
+### 사용자 등록
+> 기본 루트 계정인 <b>postgres</b>를 통해서 psql 접속: `psql postgres`
+> 생성되어 있는 계정 확인: postgres=# `\du`
+> 루트 계정인 <b>postgres</b> 비밀번호 설정: postgres=# `\password postgres`
+> 계정명이 <b>jujin</b>인 계정 생성 postgres=# `CREATE ROLE jujin WITH LOGIN PASSWORD 'jujin';`
+> 생성되어진 계정 확인: postgres=# `\du`
+
+
 
 ## 백업
 ### 형식
