@@ -4,7 +4,7 @@
 ## 설치 및 실행
 ### 설치 - 11버전
 > macOS : `brew install postgresql@11`  
-> Ubuntu:  
+> Ubuntu
 > ```bash
 > $ sudo vi /etc/apt/sources.list.d/pgdg.list
 > # vi에 아래 내용 추가 후 :wq 
@@ -41,9 +41,16 @@
 > 기본 루트 계정인 <b>postgres</b>를 통해서 psql 접속: `psql postgres`  
 
 ### Ubuntu
-> 기본 루트 계정인 <b>postgres</b>를 통해서 psql 접속: `psql postgres`  
+> 기본 루트 계정인 <b>postgres</b>를 통해서 psql 접속: `sudo -u postgres psql`  
 
-## [macOS] 설정 변경
+## 설정 변경
+### Ubuntu
+> 설정 파일 <b>postgresql.conf</b>의 위치: /etc/postgresql/11/main
+> vi 를 통한 설정 변경
+> ```bash
+> $ vi /etc/postgresql/11/main/postgresql.conf
+> 
+> ```
 
 ## 사용자 등록 및 권한 추가
 ### 사용자 등록
