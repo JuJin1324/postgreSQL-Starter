@@ -4,7 +4,7 @@
 ## 설치 및 실행
 ### 설치 - 11버전
 > macOS : `brew install postgresql@11`  
-> Ubuntu: 
+> Ubuntu:  
 > ```bash
 > $ sudo vi /etc/apt/sources.list.d/pgdg.list
 > # vi에 아래 내용 추가 후 :wq 
@@ -16,7 +16,7 @@
 > ```
 
 ### 서버 실행
-> macOS 
+> macOS  
 > ```bash
 > # 실행
 > pg_ctl -D /usr/local/var/postgres start
@@ -27,16 +27,13 @@
 > # 실행 확인
 > postgres -V
 > ```
-> Ubuntu
+> Ubuntu  
 > ```bash
 > # 실행
 > sudo systemctl start postgresql@11-main
 > 
 > # 서비스 등록
 > sudo systemctl enable postgresql@11-main
-> 
-> # 실행 확인
-> postgres -V
 > ```
 
 ## 접속
