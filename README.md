@@ -1,16 +1,55 @@
 # postgreSQL-Starter
 > postgreSQL 정리
+ 
+## 설치 및 실행
+### 설치 - 11버전
+> macOS : `brew install postgresql@11`  
+> Ubuntu: 
+> ```bash
+> $ sudo vi /etc/apt/sources.list.d/pgdg.list
+> # vi에 아래 내용 추가 후 :wq 
+> deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main
+> 
+> $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+> $ sudo apt-get update
+> $ sudo apt-get install postgresql-11
+> ```
 
-## macOS 
-### brew를 통한 설치
-> postgres 설치(11버전): `brew install postgresql@11`  
-> 서버 실행: `pg_ctl -D /usr/local/var/postgres start`  
-> 서비스 등록: `brew services start postgresql`  
-> 실행 확인: `postgres -V`  
+### 서버 실행
+> macOS 
+> ```bash
+> # 실행
+> pg_ctl -D /usr/local/var/postgres start
+> 
+> # 서비스 등록
+> brew services start postgresql
+> 
+> # 실행 확인
+> postgres -V
+> ```
+> Ubuntu
+> ```bash
+> # 실행
+> sudo systemctl start postgresql@11-main
+> 
+> # 서비스 등록
+> sudo systemctl enable postgresql@11-main
+> 
+> # 실행 확인
+> postgres -V
+> ```
+
+## 접속
+### macOS
+> 기본 루트 계정인 <b>postgres</b>를 통해서 psql 접속: `psql postgres`  
+
+### Ubuntu
+> 기본 루트 계정인 <b>postgres</b>를 통해서 psql 접속: `psql postgres`  
+
+## [macOS] 설정 변경
 
 ## 사용자 등록 및 권한 추가
 ### 사용자 등록
-> 기본 루트 계정인 <b>postgres</b>를 통해서 psql 접속: `psql postgres`  
 > 생성되어 있는 계정 확인: postgres=# `\du`  
 > 루트 계정인 <b>postgres</b> 비밀번호 설정: postgres=# `\password postgres`  
 > 계정명이 <b>jujin</b>인 계정 생성 postgres=# `CREATE ROLE jujin WITH LOGIN PASSWORD 'jujin';`  
@@ -24,7 +63,7 @@
 > 데이터베이스 생성: postgres=# `CREATE DATABASE mydb;`   
 > postgres client 종료: postgres=# `\q`  
 
-## 백업
+## 백업 - macOS / Ubuntu 공통
 ### 형식
 > `time pg_dump -j [스레드 갯수] -d [Database 이름] -Fd -f [dump 디렉터리 이름]`  
 
@@ -45,7 +84,7 @@
 `time pg_dump -j 8 -d mydb -Ft -f /var/lib/postgresql/data/mydb_dump.dir`
 
 
-## 복원
+## 복원 - macOS / Ubuntu 공통
 ### 형식
 > `time pg_restore -h [호스트 명] -U [Username] -Fd -d [Database 이름] [덤프 디렉터리 이름]`  
 
