@@ -1,8 +1,8 @@
 # postgreSQL-Starter
 > postgreSQL 정리
 
-## 로컬 설치
-### macOS + brew
+## macOS 
+### brew를 통한 설치
 > postgres 설치(11버전): `brew install postgresql@11`  
 > 서버 실행: `pg_ctl -D /usr/local/var/postgres start`  
 > 서비스 등록: `brew services start postgresql`  
