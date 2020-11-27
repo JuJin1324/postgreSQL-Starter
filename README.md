@@ -57,8 +57,8 @@
 ### 데이터 저장 디렉터리 변경하기
 > postgres 의 데이터 저장 디렉터리 확인은 `sudo -u postgres pgsql` 로 root 접속 후 `SHOW data_directory;` 명령어를 통해서 알 수 있다.  
 > 보통 `/var/lib/postgresql/11/main`  
-> 디렉터리 변경 전 DB 서비스 종료: `sudo systemctl stop postgresql`
-> rsync 를 통해서 데이터를 담고 있는 디렉터리를 변경할 디렉터리로 복붙: `sudo rsync -av /var/lib/postgresql /mydatabase/postgres-data`
+> 디렉터리 변경 전 DB 서비스 종료: `sudo systemctl stop postgresql`  
+> rsync 를 통해서 데이터를 담고 있는 디렉터리를 변경할 디렉터리로 복붙: `sudo rsync -av /var/lib/postgresql /mydatabase/postgres-data`  
 > vi 를 통한 설정 변경  
 > `sudo vi /etc/postgresql/11/main/postgresql.conf`
 > ```bash
@@ -87,13 +87,13 @@
 > `time pg_dump -j [스레드 갯수] -d [Database 이름] -Fd -f [dump 디렉터리 이름]`  
 
 ### time
-> time 이후의 명령어가 얼마나 걸렸는지 출력
+> time 이후의 명령어가 얼마나 걸렸는지 출력  
 
 ### pg_dump
-> -j : 동시로 처리하기 위해서 사용할 스레드의 갯수 보통 코어 갯수 혹은 쓰레드 갯수로 지정
-> -d : dump를 통해 백업할 데이터베이스 이름
-> -Fd -f : dump 파일들을 저장할 디렉터리 이름, -Ft -f 로 하면 tgz 압축파일로 저장이 가능하지만 pg_restore 에서도 동시 처리를 하려면 
-디렉터리로 dump을 내보내야 한다.
+> -j : 동시로 처리하기 위해서 사용할 스레드의 갯수 보통 코어 갯수 혹은 쓰레드 갯수로 지정  
+> -d : dump를 통해 백업할 데이터베이스 이름  
+> -Fd -f : dump 파일들을 저장할 디렉터리 이름, -Ft -f 로 하면 tgz 압축파일로 저장이 가능하지만 pg_restore 에서도 동시 처리를 하려면   
+디렉터리로 dump을 내보내야 한다.  
 
 ### 예시
 > <b>8개의 쓰레드</b>로 동시성 확보   
