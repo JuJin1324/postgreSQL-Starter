@@ -57,8 +57,11 @@
 ### 데이터 저장 디렉터리 변경하기
 > postgres 의 데이터 저장 디렉터리 확인은 `sudo -u postgres pgsql` 로 root 접속 후 `SHOW data_directory;` 명령어를 통해서 알 수 있다.  
 > 보통 `/var/lib/postgresql/11/main`  
+> 
 > 디렉터리 변경 전 DB 서비스 종료: `sudo systemctl stop postgresql`  
+> 
 > rsync 를 통해서 데이터를 담고 있는 디렉터리를 변경할 디렉터리로 복붙: `sudo rsync -av /var/lib/postgresql /mydatabase/postgres-data`  
+> 
 > vi 를 통한 설정 변경  
 > `sudo vi /etc/postgresql/11/main/postgresql.conf`
 > ```bash
