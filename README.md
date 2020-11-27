@@ -47,10 +47,12 @@
 ### Ubuntu
 > 설정 파일 <b>postgresql.conf</b>의 위치: /etc/postgresql/11/main
 > vi 를 통한 설정 변경
-> ```bash
-> $ vi /etc/postgresql/11/main/postgresql.conf
-> 
-> ```
+> `vi /etc/postgresql/11/main/postgresql.conf`
+
+### 설정 값
+> listen_addresses: 외부 접속 허용 설정 - 'localhost'(내부만 허용) -> '*' (외부 접속까지 모두 허용)
+> port: postgres가 사용할 포트 - 5432(default) 
+> shared_buffers: 쿼리 실행시 사용하는 메모리 공간 같음 - 128MB(default)
 
 ## 사용자 등록 및 권한 추가
 ### 사용자 등록
