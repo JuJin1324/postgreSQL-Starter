@@ -19,7 +19,10 @@
 ### 권한 추가
 > <b>jujin</b> 계정에 데이터베이스 생성 권한 추가: postgres=# `ALTER ROLE jujin CREATEDB;`  
 > 권한 변경 확인: postgres=# `\du`  
-> postgres client 종료: postgres=# `\q`
+
+### 데이터베이스 생성
+> 데이터베이스 생성: postgres=# `CREATE DATABASE mydb;`   
+> postgres client 종료: postgres=# `\q`  
 
 ## 백업
 ### 형식
