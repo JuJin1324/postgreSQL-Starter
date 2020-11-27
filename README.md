@@ -69,6 +69,7 @@
 > data_directory = '/mydatabase/postgres-data/postgresql/11/main'
 > ...
 > ```
+> DB 서비스 시작: `sudo systemctl start postgresql`
 
 ## 사용자 등록 및 권한 추가
 ### 사용자 등록
