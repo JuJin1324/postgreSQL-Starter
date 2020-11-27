@@ -54,6 +54,17 @@
 > port: postgres가 사용할 포트 - 5432(default)   
 > shared_buffers: 쿼리 실행시 사용하는 메모리 공간 같음 - 128MB(default)  
 
+### 외부 접속 허용하기
+> postgresql.conf 변경  
+> `sudo vi /etc/postgresql/11/main/postgresql.conf`  
+> `listen_addresses: '*'` 으로 변경  
+> 
+> pg_hba.conf 변경  
+> `sudo vi /etc/postgresql/11/main/pg_hba.conf`  
+> `host    all             all             127.0.0.1/32            md5` 부분을 지우고  
+> `host    all             all             0.0.0.0/0               md5` 로 변경  
+> `sudo systemctl restart postgresql`
+
 ### 데이터 저장 디렉터리 변경하기
 > postgres 의 데이터 저장 디렉터리 확인은 `sudo -u postgres pgsql` 로 root 접속 후 `SHOW data_directory;` 명령어를 통해서 알 수 있다.  
 > 보통 `/var/lib/postgresql/11/main`  
