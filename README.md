@@ -44,15 +44,28 @@
 > 기본 루트 계정인 <b>postgres</b>를 통해서 psql 접속: `sudo -u postgres psql`  
 
 ## 설정 변경
-### Ubuntu
-> 설정 파일 <b>postgresql.conf</b>의 위치: /etc/postgresql/11/main
-> vi 를 통한 설정 변경
-> `vi /etc/postgresql/11/main/postgresql.conf`
+### Ubuntu 
+> 설정 파일 <b>postgresql.conf</b>의 위치: /etc/postgresql/11/main  
+> vi 를 통한 설정 변경  
+> `sudo vi /etc/postgresql/11/main/postgresql.conf`
 
 ### 설정 값
-> listen_addresses: 외부 접속 허용 설정 - 'localhost'(내부만 허용) -> '*' (외부 접속까지 모두 허용)
-> port: postgres가 사용할 포트 - 5432(default) 
-> shared_buffers: 쿼리 실행시 사용하는 메모리 공간 같음 - 128MB(default)
+> listen_addresses: 외부 접속 허용 설정 - 'localhost'(내부만 허용) -> '*' (외부 접속까지 모두 허용)  
+> port: postgres가 사용할 포트 - 5432(default)   
+> shared_buffers: 쿼리 실행시 사용하는 메모리 공간 같음 - 128MB(default)  
+
+### 데이터 저장 디렉터리 변경하기
+> postgres 의 데이터 저장 디렉터리 확인은 `sudo -u postgres pgsql` 로 root 접속 후 `SHOW data_directory;` 명령어를 통해서 알 수 있다.  
+> 보통 `/var/lib/postgresql/11/main`  
+> 디렉터리 변경 전 DB 서비스 종료: `sudo systemctl stop postgresql`
+> rsync 를 통해서 데이터를 담고 있는 디렉터리를 변경할 디렉터리로 복붙: `sudo rsync -av /var/lib/postgresql /mydatabase/postgres-data`
+> vi 를 통한 설정 변경  
+> `sudo vi /etc/postgresql/11/main/postgresql.conf`
+> ```bash
+> ...
+> data_directory = '/mydatabase/postgres-data/postgresql/11/main'
+> ...
+> ```
 
 ## 사용자 등록 및 권한 추가
 ### 사용자 등록
