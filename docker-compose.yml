@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  db:
+    container_name: postgres-local
+    image: postgres:11.9
+    restart: on-failure
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: scott
+      POSTGRES_PASSWORD: tiger
+      POSTGRES_DB: mytest
+    volumes:
+      - ./docker-volumes/postgres-data:/var/lib/postgresql/data
+    command: 
+      - "postgres"
+      - "-c"
+      - "shared_buffers=3GB"
+      - "-c"
+      - "max_connections=1000"
