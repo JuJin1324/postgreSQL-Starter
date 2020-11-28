@@ -61,9 +61,9 @@
 > WHERE name in('listen_addresses', 'max_connections', 'shared_buffers', 'effective_cache_size', 'work_mem', 'maintenance_work_mem') 
 > ORDER BY context, name;
 > ```  
-> setting : 현재 적용된 값  
-> boot_val : 디폴트값  
-> reset_val : restart/reload 하면 적용될 값  
+> <b>setting</b> : 현재 적용된 값  
+> <b>boot_val</b> : 디폴트값  
+> <b>reset_val</b> : restart/reload 하면 적용될 값  
 > 출처: [PostgresDBA](https://www.postgresdba.com/bbs/board.php?bo_table=B12&wr_id=3)
 
 ### 외부 접속 허용하기
