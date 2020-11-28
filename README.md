@@ -53,6 +53,18 @@
 > listen_addresses: 외부 접속 허용 설정 - 'localhost'(내부만 허용) -> '*' (외부 접속까지 모두 허용)  
 > port: postgres가 사용할 포트 - 5432(default)   
 > shared_buffers: 쿼리 실행시 사용하는 메모리 공간 같음 - 128MB(default)  
+>
+> 설정 값 확인 쿼리  
+> ```sql
+> SELECT name, context, unit, setting, boot_val, reset_val 
+> FROM pg_settings 
+> WHERE name in('listen_addresses', 'max_connections', 'shared_buffers', 'effective_cache_size', 'work_mem', 'maintenance_work_mem') 
+> ORDER BY context, name;
+> ```  
+> setting : 현재 적용된 값  
+> boot_val : 디폴트값  
+> reset_val : restart/reload 하면 적용될 값  
+> 출처: [PostgresDBA](https://www.postgresdba.com/bbs/board.php?bo_table=B12&wr_id=3)
 
 ### 외부 접속 허용하기
 > postgresql.conf 변경  
