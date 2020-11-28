@@ -50,9 +50,9 @@
 > `sudo vi /etc/postgresql/11/main/postgresql.conf`
 
 ### 설정 값
-> listen_addresses: 외부 접속 허용 설정 - 'localhost'(내부만 허용) -> '*' (외부 접속까지 모두 허용)  
-> port: postgres가 사용할 포트 - 5432(default)   
-> shared_buffers: 쿼리 실행시 사용하는 메모리 공간 같음 - 128MB(default)  
+> <b>listen_addresses</b>: 외부 접속 허용 설정 - 'localhost'(내부만 허용) -> '*' (외부 접속까지 모두 허용)  
+> <b>port</b>: postgres가 사용할 포트 - 5432(default)   
+> <b>shared_buffers</b>: 쿼리 실행시 사용하는 메모리 공간 같음 - 128MB(default)  
 >
 > 설정 값 확인 쿼리  
 > ```sql
