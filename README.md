@@ -44,6 +44,22 @@
 > 기본 루트 계정인 <b>postgres</b>를 통해서 psql 접속: `sudo -u postgres psql`  
 
 ## 설정 변경
+### SQL
+> 아래 Ubuntu 섹션에서 설정 변경에 사용하는 `postgresql.conf` 파일을 수정하는 대신 SQL 레벨에서 설정을 변경할 수 있다.  
+> 원하는 스펙을 입력하고 설정 변경 쿼리를 생성하는 사이트: [PGTune](https://pgtune.leopard.in.ua/#/)  
+>
+> 설정 값 확인 쿼리  
+> ```sql
+> SELECT name, context, unit, setting, boot_val, reset_val
+> FROM pg_settings
+> WHERE name in('max_connections', 'shared_buffers', 'effective_cache_size', 'maintenance_work_mem',
+>               'checkpoint_completion_target', 'wal_buffers', 'default_statistics_target', 'random_page_cost',
+>               'effective_io_concurrency', 'work_mem', 'min_wal_size', 'max_wal_size', 'max_worker_processes',
+>               'max_parallel_workers_per_gather', 'max_parallel_workers', 'max_parallel_maintenance_workers')
+> ;
+> ```  
+
+
 ### Ubuntu 
 > 설정 파일 <b>postgresql.conf</b>의 위치: /etc/postgresql/11/main  
 > vi 를 통한 설정 변경  
@@ -153,3 +169,4 @@
 
 ### 출처
 > https://reseaux.tistory.com/13 
+
