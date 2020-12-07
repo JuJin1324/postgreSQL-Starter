@@ -36,6 +36,9 @@
 > sudo systemctl enable postgresql@11-main
 > ```
 
+### postgreSQL 서버 버전 확인
+> 터미널 명령어: `/usr/lib/postgresql/11/bin/postgres -V`
+
 ## 접속
 ### macOS
 > 기본 루트 계정인 <b>postgres</b>를 통해서 psql 접속: `psql postgres`  
