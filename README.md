@@ -97,7 +97,7 @@
 > `sudo systemctl restart postgresql`
 
 ### 데이터 저장 디렉터리 변경하기
-> postgres 의 데이터 저장 디렉터리 확인은 `sudo -u postgres pgsql` 로 root 접속 후 `SHOW data_directory;` 명령어를 통해서 알 수 있다.  
+> postgres 의 데이터 저장 디렉터리 확인은 `sudo -u postgres psql` 로 root 접속 후 `SHOW data_directory;` 명령어를 통해서 알 수 있다.  
 > 보통 `/var/lib/postgresql/11/main`  
 > 
 > 디렉터리 변경 전 DB 서비스 종료: `sudo systemctl stop postgresql`  
